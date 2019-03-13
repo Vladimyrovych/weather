@@ -1,10 +1,11 @@
 import React from 'react';
+import './City.scss';
 
-export class Details extends React.Component {
+export class City extends React.Component {
     render() {
         return (
             <>
-                <div>details...</div>
+                <div>city page</div>
             </>
         )
     }

@@ -1,0 +1,25 @@
+.menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+    &__block {
+        width: 300px;
+        height: 100vh;
+        background-color: green;
+        &_hidden {
+            display: none;
+        }        
+    }
+    &__open-btn {
+        // position: relative;
+        // top: 0;
+        // right: 0;
+        padding: 10px;
+        background-color: green;
+        border: none;
+    }
+}
