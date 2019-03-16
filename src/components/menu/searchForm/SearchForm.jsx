@@ -7,7 +7,7 @@ export class SearchForm extends React.Component {
         currentValue: '',
     }
 
-    onchange = (currentValue) => {
+    onChange = (currentValue) => {
         this.setState({currentValue: currentValue})
     }
 
@@ -21,7 +21,7 @@ export class SearchForm extends React.Component {
                 <SearchInput 
                     placeholder={this.props.placeholder} 
                     currentValue={this.state.currentValue}
-                    onChange={this.onchange}
+                    onChange={this.onChange}
                 />
             </form>
         )
