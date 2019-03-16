@@ -15,6 +15,10 @@ export class SearchForm extends React.Component {
         e.preventDefault();
     }
 
+    onClick = (cityName, cityKey) => {
+        this.props.onClick(cityName, cityKey);
+    }
+
     render() {
         return (
             <form className='menu__search search-form' onSubmit={this.onSubmit}>
@@ -22,6 +26,7 @@ export class SearchForm extends React.Component {
                     placeholder={this.props.placeholder} 
                     currentValue={this.state.currentValue}
                     onChange={this.onChange}
+                    onClick={this.onClick}
                 />
             </form>
         )

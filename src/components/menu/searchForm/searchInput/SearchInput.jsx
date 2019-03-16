@@ -8,19 +8,18 @@ export class SearchInput extends React.Component {
         this.props.onChange(e.currentTarget.value);
     }
 
+    onClick = (cityName, cityKey) => {
+        this.props.onClick(cityName, cityKey);
+    }
+
     render() {
         const suggestions = []
 
         if (this.props.currentValue.length > 1) {
-            console.log('!');
-            
             for (let index = 0; 10 > suggestions.length && index < cities.length; index++) {
                 const city = cities[index];
-                // console.log(this.props.currentValue.toLowerCase());
-                // console.log(city.name.toLowerCase().slice(0, this.props.currentValue.length + +1));
-
                 if (city.name.toLowerCase().slice(0, this.props.currentValue.length) === this.props.currentValue.toLowerCase()) {
-                    suggestions.push(<Suggestion cityName={city.name} cityCountry={city.country}/>)
+                    suggestions.push(<Suggestion cityName={city.name} cityKey={city.id} cityCountry={city.country} onClick={this.onClick}/>)
                 }
                 
             }    

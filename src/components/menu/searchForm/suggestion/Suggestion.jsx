@@ -2,9 +2,13 @@ import React from 'react';
 import './Suggestion.scss';
 
 export class Suggestion extends React.Component {
+    onClick = () => {
+        this.props.onClick(this.props.cityName, this.props.cityKey);
+    }
+
     render() {
         return (
-            <div className='search-form__suggestion'>
+            <div className='search-form__suggestion' onClick={this.onClick}>
                 <div className='search-form__suggestion-city'>
                     {this.props.cityName}
                 </div>

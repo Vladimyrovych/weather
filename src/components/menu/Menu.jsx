@@ -6,14 +6,26 @@ import {FavoriteCity} from './favoriteCity';
 export class Menu extends React.Component {
     state = {
         isHidden: true,
+        currentValue: '',
     }
 
     showMenu = () => {
         this.setState({isHidden: !this.state.isHidden})
     }
 
-    onChangeSearchInput = () => {
-
+    onClick = (cityName, cityKey) => {
+        this.setState({currentValue: cityName});
+        if (localStorage.getItem('favoriteCities') === null) {
+            let favoriteCities = {
+                [cityKey]: cityName,
+            }
+            localStorage.setItem('favoriteCities', JSON.stringify(favoriteCities));
+        } else {
+            let currentStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+            currentStorage[cityKey] = cityName;
+            localStorage.setItem('favoriteCities', JSON.stringify(currentStorage));
+        }
+        
     }
 
     render() {
@@ -22,15 +34,24 @@ export class Menu extends React.Component {
             hiddenClassname += ' menu__block_hidden';
         }
 
+        let favoriteCities = [];
+        if (localStorage.getItem('favoriteCities') !== null) {
+            let favoriteCitiesStorage = JSON.parse(localStorage.getItem('favoriteCities'));
+            for (const key in favoriteCitiesStorage) {
+                if (favoriteCitiesStorage.hasOwnProperty(key)) {
+                    const element = favoriteCitiesStorage[key];
+                    favoriteCities.push(<FavoriteCity cityName={element}/>);
+                }
+            }
+        }
+        
         return (
             <div className='weather__menu menu'>
                 <div className={hiddenClassname}>
-                    <SearchForm placeholder='Find city...' onChange={this.onChangeSearchInput}/>
+                    <SearchForm placeholder='Find city...' onClick={this.onClick}/>
                     <div className='menu__favorite-city-container'>
-                        <FavoriteCity />
-                        <FavoriteCity />
-                        <FavoriteCity />
-                        <FavoriteCity />
+                        {/* <FavoriteCity cityName={this.state.currentValue} /> */}
+                        {favoriteCities}
                     </div>
                 </div>
                 <button className='menu__open-btn' onClick={this.showMenu}>
