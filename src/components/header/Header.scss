@@ -1,9 +1,14 @@
 .header {
     width: 100%;
     height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(138, 138, 138);
     padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #232F34;
+    color: white;
+    box-shadow: 0 0 10px 5px grey;
+    &__img {
+        height: 50px;
+    }
 }

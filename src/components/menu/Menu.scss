@@ -7,19 +7,34 @@
     justify-content: end;
     align-items: flex-start;
     &__block {
-        width: 300px;
+        width: 400px;
         height: 100vh;
-        background-color: green;
+        background-color: #4A6572;
+        color: white;
+        box-shadow: 0 0 10px 5px grey;
+        padding: 30px;
         &_hidden {
             display: none;
         }        
     }
+    &__favorite-city-container {
+        width: 100%;
+        text-align: left;
+    }
     &__open-btn {
-        // position: relative;
-        // top: 0;
-        // right: 0;
+        height: 50px;
         padding: 10px;
-        background-color: green;
+        background-color: #4A6572;
         border: none;
+        outline: none;
+    }
+    &__btn-line {
+        background-color: #F9AA33;
+        width: 30px;
+        height: 5px;
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: initial;
+        }
     }
 }
