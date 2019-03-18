@@ -2,7 +2,7 @@ import React from 'react';
 import './Suggestion.scss';
 
 export class Suggestion extends React.Component {
-    onClick = () => {
+    onClick = () => {//добавление города в избранные
         this.props.onClick(this.props.cityName, this.props.cityKey);
     }
 

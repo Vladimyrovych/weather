@@ -8,7 +8,7 @@ export class SearchInput extends React.Component {
         this.props.onChange(e.currentTarget.value);
     }
 
-    onClick = (cityName, cityKey) => {
+    onClick = (cityName, cityKey) => {//добавление города в избранные и скрытие подсказки
         this.props.onClick(cityName, cityKey);
     }
 
@@ -19,9 +19,15 @@ export class SearchInput extends React.Component {
             for (let index = 0; 10 > suggestions.length && index < cities.length; index++) {
                 const city = cities[index];
                 if (city.name.toLowerCase().slice(0, this.props.currentValue.length) === this.props.currentValue.toLowerCase()) {
-                    suggestions.push(<Suggestion cityName={city.name} cityKey={city.id} cityCountry={city.country} onClick={this.onClick}/>)
+                    suggestions.push(
+                        <Suggestion 
+                            cityName={city.name} 
+                            cityKey={city.id} 
+                            cityCountry={city.country} 
+                            onClick={this.onClick}
+                        />
+                    )
                 }
-                
             }    
         }
 

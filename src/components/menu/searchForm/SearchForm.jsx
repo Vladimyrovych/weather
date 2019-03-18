@@ -8,15 +8,16 @@ export class SearchForm extends React.Component {
     }
 
     onChange = (currentValue) => {
-        this.setState({currentValue: currentValue})
+        this.setState({currentValue: currentValue});
     }
 
     onSubmit = (e) => {
         e.preventDefault();
     }
 
-    onClick = (cityName, cityKey) => {
+    onClick = (cityName, cityKey) => {//добавление города в избранные и скрытие подсказки
         this.props.onClick(cityName, cityKey);
+        this.setState({currentValue: ''});// скрытие подсказки
     }
 
     render() {

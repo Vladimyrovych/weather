@@ -13,7 +13,7 @@ export class Menu extends React.Component {
         this.setState({isHidden: !this.state.isHidden})
     }
 
-    onClick = (cityName, cityKey) => {
+    onClick = (cityName, cityKey) => {//добавление города в избранные
         this.setState({currentValue: cityName});
         if (localStorage.getItem('favoriteCities') === null) {
             let favoriteCities = {
@@ -50,7 +50,6 @@ export class Menu extends React.Component {
                 <div className={hiddenClassname}>
                     <SearchForm placeholder='Find city...' onClick={this.onClick}/>
                     <div className='menu__favorite-city-container'>
-                        {/* <FavoriteCity cityName={this.state.currentValue} /> */}
                         {favoriteCities}
                     </div>
                 </div>
