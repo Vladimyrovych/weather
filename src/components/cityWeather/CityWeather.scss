@@ -1,0 +1,33 @@
+.city-weather {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 500;
+    &__weather-icon {
+        height: 128px;
+        width: 128px;
+        display: flex;
+        align-self: center;
+    }
+    &__city-name {
+        text-align: center;
+    }
+    &__weather-description {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__city-temperature {
+
+    }
+    &__weather-main {
+
+    }
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 2px rgb(228, 228, 228);
+    }
+}
