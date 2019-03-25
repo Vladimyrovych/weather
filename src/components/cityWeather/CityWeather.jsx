@@ -1,12 +1,12 @@
 import React from 'react';
 import './CityWeather.scss';
+import { Link } from 'react-router-dom';
 import cloud from '../../utilities/assets/cloudy.png';
 import fog from '../../utilities/assets/foggy.png';
 import rain from '../../utilities/assets/rainfall.png';
 import snow from '../../utilities/assets/snow.png';
 import storm from '../../utilities/assets/storm.png';
 import sun from '../../utilities/assets/sun.png';
-import wind from '../../utilities/assets/wind.png';
 
 export class CityWeather extends React.Component {
     getWeatherIcon = () => {
@@ -35,14 +35,14 @@ export class CityWeather extends React.Component {
 
     render() {
         return (
-            <div className='home__city-weather city-weather'>
+            <Link to='/city' className='home__city-weather city-weather'>
                 <div className='city-weather__city-name'>{this.props.cityName}</div>
                 <img className='city-weather__weather-icon' src={this.getWeatherIcon()}/>
                 <div className='city-weather__weather-description'>
                     <div className='city-weather__city-temperature'>{this.props.temperature} ℃</div>
                     <div className='city-weather__weather-main'>{this.props.weatherMain}</div>
                 </div>
-            </div>
+            </Link>
         )
     }
 }

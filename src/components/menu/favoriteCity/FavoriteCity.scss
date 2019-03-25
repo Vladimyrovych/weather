@@ -8,17 +8,17 @@
     &__name-btn {
         border: 2px solid white;
         height: 35px;
-        text-align: left;
         padding: 0 10px;
+        line-height: 31px;
         background-color: transparent;
         font-family: inherit;
         font-size: 0.9em;
         color: white;
         outline: none;
+        text-decoration: none;
         &:hover {
             color: #F9AA33;
             border-color: #F9AA33;
-            cursor: pointer;
         }    
     }
     &__close-btn {

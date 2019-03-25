@@ -7,6 +7,8 @@
     flex-direction: column;
     justify-content: space-between;
     font-weight: 500;
+    text-decoration: none;
+    color: #232F34;
     &__weather-icon {
         height: 128px;
         width: 128px;
@@ -27,7 +29,6 @@
 
     }
     &:hover {
-        cursor: pointer;
-        box-shadow: 0 0 10px 2px rgb(228, 228, 228);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
 }

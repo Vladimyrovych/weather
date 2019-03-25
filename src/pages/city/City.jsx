@@ -1,12 +1,13 @@
 import React from 'react';
 import './City.scss';
+import { CityWeatherDetails } from '../../components/cityWeatherDetails/CityWeatherDetails';
 
 export class City extends React.Component {
     render() {
         return (
-            <>
-                <div>city page</div>
-            </>
+            <div className=''>
+                <CityWeatherDetails />
+            </div>
         )
     }
 }
