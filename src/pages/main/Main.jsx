@@ -10,7 +10,7 @@ export class Main extends React.Component {
             <main className='weather__main main'>
                 <Switch>
                     <Route exact path='/' component={Home}/>
-                    <Route path='/city' component={City}/>
+                    <Route path='/city/:cityKey' component={City}/>
                 </Switch>
             </main>
         )

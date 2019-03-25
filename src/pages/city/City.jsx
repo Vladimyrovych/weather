@@ -6,7 +6,7 @@ export class City extends React.Component {
     render() {
         return (
             <div className=''>
-                <CityWeatherDetails />
+                <CityWeatherDetails cityKey={this.props.match.params.cityKey}/>
             </div>
         )
     }

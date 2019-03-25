@@ -9,15 +9,13 @@ export class Home extends React.Component {
 
     weatherRequestSeveralCities = (ArrCityKeys) => {
         const url = `http://api.openweathermap.org/data/2.5/group?id=${[...ArrCityKeys]}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
-        console.log(url);
         fetch(url)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
-            
             const weatherArray = response.list.map((city) => {
                 return {
                     cityName: city.name,
+                    cityKey: city.id,
                     temperature: city.main.temp,
                     weatherMain: city.weather[0].main,
                     weatherId: city.weather[0].id,
@@ -49,6 +47,7 @@ export class Home extends React.Component {
                     temperature={city.temperature}
                     weatherMain={city.weatherMain}
                     weatherId={city.weatherId}
+                    cityKey={city.cityKey}
                 />
             })
         }

@@ -35,11 +35,11 @@ export class CityWeather extends React.Component {
 
     render() {
         return (
-            <Link to='/city' className='home__city-weather city-weather'>
+            <Link to={`/city/${this.props.cityKey}`} className='home__city-weather city-weather'>
                 <div className='city-weather__city-name'>{this.props.cityName}</div>
                 <img className='city-weather__weather-icon' src={this.getWeatherIcon()}/>
                 <div className='city-weather__weather-description'>
-                    <div className='city-weather__city-temperature'>{this.props.temperature} ℃</div>
+                    <div className='city-weather__city-temperature'>{this.props.temperature} °C</div>
                     <div className='city-weather__weather-main'>{this.props.weatherMain}</div>
                 </div>
             </Link>
