@@ -35,17 +35,15 @@ export class CityWeatherDetailsDay extends React.Component {
 
     render() {
         return (
-            <div className=''>
-                <div className=''>{this.props.cityName}</div>
-                <div className=''>{this.props.datetime}</div>
-                <img src={this.getWeatherIcon()}/>
-                <div className=''>{this.props.temperature}</div>
-                <div className=''>{this.props.humidity}</div>
-                <div className=''>{this.props.pressure}</div>
-                <div className=''>{this.props.weatherDescription}</div>
-                <div className=''>{this.props.weatherId}</div>
-                <div className=''>{this.props.windDirection}</div>
-                <div className=''>{this.props.windDeg}</div>
+            <div className='city__weather-data weather-data'>
+                <div className='weather-data__datetime'>{this.props.datetime}</div>
+                <img className='weather-data__icon' src={this.getWeatherIcon()}/>
+                <div className='weather-data__temperature'>{this.props.temperature}</div>
+                <div className='weather-data__humidity'>{this.props.humidity}</div>
+                <div className='weather-data__pressure'>{this.props.pressure}</div>
+                <div className='weather-data__description'>{this.props.weatherDescription}</div>
+                <div className='weather-data__wind-speed'>{this.props.windSpeed}</div>
+                <div className='weather-data__wind-deg'>{this.props.windDeg}</div>
             </div>
         )
     }

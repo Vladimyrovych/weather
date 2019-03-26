@@ -21,7 +21,7 @@ export class CityWeatherDetails extends React.Component {
                     pressure: datetime.main.pressure,
                     weatherDescription: datetime.weather[0].description,
                     weatherId: datetime.weather[0].id,
-                    windDirection: datetime.wind.speed,
+                    windSpeed: datetime.wind.speed,
                     windDeg: datetime.wind.deg,
                 }
             });
@@ -42,23 +42,31 @@ export class CityWeatherDetails extends React.Component {
         if (this.state.weatherHoursArray.length > 0) {
             hoursWeather = this.state.weatherHoursArray.map((datetime) => {
                 return <CityWeatherDetailsDay
-                    cityName={datetime.cityName}
                     datetime={datetime.datetime}
                     temperature={datetime.temperature}
                     humidity={datetime.humidity}
                     pressure={datetime.pressure}
                     weatherDescription={datetime.weatherDescription}
                     weatherId={datetime.weatherId}
-                    windDirection={datetime.windDirection}
+                    windSpeed={datetime.windSpeed}
                     windDeg={datetime.windDeg}
                 />
             })
         }
-        console.log(hoursWeather);
         
-
         return (
-            <div className=''>
+            <div className='weather__city city'>
+                <div className='city__city-name'>{this.state.weatherHoursArray[0] === undefined? null: this.state.weatherHoursArray[0].cityName}</div>
+                <div className='city__weather-header'>
+                    <div className='city__empty-block'></div>
+                    <div className='city__empty-block'></div>
+                    <div className='city__temperature'>Температура, °C</div>
+                    <div className='city__humidity'>Влажность, %</div>
+                    <div className='city__pressure'>Давление, гПа</div>
+                    <div className='city__weather-description'>Погодное явление</div>
+                    <div className='city__wind-speed'>Скорость ветра, м/с</div>
+                    <div className='city__wind-deg'>Направление ветра, град.</div>
+                </div>
                 {hoursWeather}
             </div>
         )
