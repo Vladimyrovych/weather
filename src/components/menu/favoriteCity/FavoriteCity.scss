@@ -16,6 +16,7 @@
         color: white;
         outline: none;
         text-decoration: none;
+        transition: all 0.15s linear;
         &:hover {
             color: #F9AA33;
             border-color: #F9AA33;
@@ -31,6 +32,7 @@
         color: white;
         outline: none;
         padding-bottom: 3px;
+        transition: all 0.15s linear;
         &:hover {
             border-color: rgb(255, 83, 83);
             color: rgb(255, 83, 83);

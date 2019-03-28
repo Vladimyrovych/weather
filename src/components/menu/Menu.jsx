@@ -32,9 +32,9 @@ export class Menu extends React.Component {
     }
 
     render() {
-        let hiddenClassName = 'menu__block';
+        let hiddenClassName = 'weather__menu menu';
         if (this.state.isHidden === true) {
-            hiddenClassName += ' menu__block_hidden';
+            hiddenClassName += ' menu_hidden';
         }
 
         let favoriteCities = [];
@@ -55,8 +55,8 @@ export class Menu extends React.Component {
         }
         
         return (
-            <div className='weather__menu menu'>
-                <div className={hiddenClassName}>
+            <div className={hiddenClassName}>
+                <div className='menu__block'>
                     <SearchForm placeholder='Find city...' onClick={this.onClick}/>
                     {favoriteCities}
                 </div>

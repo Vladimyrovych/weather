@@ -9,4 +9,8 @@
     font-size: 1em;
     color: #4A6572;
     outline: none;
+    transition: all 0.15s linear;
+    &:hover, &:focus {
+        border: 2px solid #F9AA33;
+    }
 }

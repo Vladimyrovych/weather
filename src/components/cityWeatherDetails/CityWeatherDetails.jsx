@@ -8,7 +8,7 @@ export class CityWeatherDetails extends React.Component {
     }
 
     weatherRequestHours = () => {
-        const url = `http://api.openweathermap.org/data/2.5/forecast?id=${this.props.cityKey}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
+        //const url = `http://api.openweathermap.org/data/2.5/forecast?id=${this.props.cityKey}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
         fetch(url)
         .then(response => response.json())
         .then(response => {

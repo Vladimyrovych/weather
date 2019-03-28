@@ -9,6 +9,7 @@
     font-weight: 500;
     text-decoration: none;
     color: #232F34;
+    transition: all 0.3s ease-in-out;
     &__weather-icon {
         height: 128px;
         width: 128px;
@@ -21,12 +22,6 @@
     &__weather-description {
         display: flex;
         justify-content: space-around;
-    }
-    &__city-temperature {
-
-    }
-    &__weather-main {
-
     }
     &:hover {
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);

@@ -4,6 +4,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 40px;
+    &__city-name {
+        color: #232F34;
+        font-size: 1.5em;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    &__weather-header {
+        color: rgba(35, 47, 52, 0.664);
+        display: flex;
+        font-size: 0.6em;
+        text-align: center;
+        & * {
+            padding: 5px 10px;
+            width: 90px;
+        }
+    }
 }
