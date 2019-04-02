@@ -135,12 +135,4 @@ export class City extends React.Component {
             </div>
         )
     }
-
-    // render() {
-    //     return (
-    //         <div className=''>
-    //             <CityWeatherDetails cityKey={this.props.match.params.cityKey}/>
-    //         </div>
-    //     )
-    // }
 }

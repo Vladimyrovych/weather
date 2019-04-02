@@ -13,7 +13,7 @@ export class FavoriteCity extends React.Component {
     render() {
         return (
             <div className='menu__favorite-city favorite-city'>
-                <Link to={`/city/${this.props.cityKey}`} className='favorite-city__name-btn'>{this.props.cityName}</Link>
+                <Link to={`/city/${this.props.cityKey}/`} className='favorite-city__name-btn'>{this.props.cityName}</Link>
                 <button className='favorite-city__close-btn' onClick={this.removeFavoriteCity}>X</button>
             </div>
         )
