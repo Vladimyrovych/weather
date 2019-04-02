@@ -13,7 +13,6 @@ export class City extends React.Component {
         fetch(url)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
             const weatherHoursArray = response.list.map((datetime) => {
                 return {
                     datetime: datetime.dt,

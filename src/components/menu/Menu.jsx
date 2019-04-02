@@ -48,6 +48,7 @@ export class Menu extends React.Component {
                             cityName={element} 
                             cityKey={key}
                             removeFavoriteCity={this.removeFavoriteCity}
+                            onClick={this.showMenu}
                         />
                     );
                 }
