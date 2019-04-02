@@ -44,7 +44,7 @@ export class Home extends React.Component {
             randomCitiesWeather = this.state.weatherArray.map((city) => {
                 return <CityWeather
                     cityName={city.cityName}
-                    temperature={city.temperature}
+                    temperature={Math.round(city.temperature)}
                     weatherMain={city.weatherMain}
                     weatherId={city.weatherId}
                     cityKey={city.cityKey}
