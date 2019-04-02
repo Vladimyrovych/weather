@@ -1,3 +1,5 @@
+@import '../../mixins.scss';
+
 .city {
     width: 100%;
     max-width: 1366px;
@@ -6,6 +8,10 @@
     justify-content: center;
     align-items: center;
     padding: 40px;
+    @include mobile {
+        align-items: flex-start;
+        padding: 50px 10px;
+    }
     &__city-name {
         color: #232F34;
         font-size: 1.5em;

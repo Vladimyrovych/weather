@@ -1,3 +1,5 @@
+@import '../../../mixins.scss';
+
 .weather-data {
     display: flex;
     align-items: center;
@@ -5,6 +7,10 @@
     color: #232F34;
     text-align: center;
     border-bottom: 1px solid #232F34;
+    @include mobile {
+        width: 100%;
+        overflow: scroll;
+    }
     & * {
         width: 90px;
         padding: 5px;
