@@ -40,12 +40,30 @@ export class CityWeatherDetailsDay extends React.Component {
                 <div className='weather-data__icon-block'>
                     <img className='weather-data__icon' src={this.getWeatherIcon()}/>
                 </div>
-                <div className='weather-data__temperature'>{this.props.temperature} °C</div>
-                <div className='weather-data__humidity'>{this.props.humidity} %</div>
-                <div className='weather-data__pressure'>{this.props.pressure} гПа</div>
-                <div className='weather-data__description'>{this.props.weatherDescription}</div>
-                <div className='weather-data__wind-speed'>{this.props.windSpeed} м/с</div>
-                <div className='weather-data__wind-deg'>{this.props.windDeg}</div>
+                <div className='weather-data__temperature temperature'>
+                    <div className='temperature__name'>Темп.</div>
+                    <div className='temperature__value'>{this.props.temperature}°C</div>
+                </div>
+                <div className='weather-data__humidity humidity'>
+                    <div className='humidity__name'>Влажн.</div>
+                    <div className='humidity__value'>{this.props.humidity}%</div>
+                </div>
+                <div className='weather-data__pressure pressure'>
+                    <div className='pressure__name'>Давл.</div>
+                    <div className='pressure__value'>{this.props.pressure}гПа</div>
+                </div>
+                <div className='weather-data__description description'>
+                    <div className='description__name'>Погода</div>
+                    <div className='description__value'>{this.props.weatherDescription}</div>
+                </div>
+                <div className='weather-data__wind-speed wind-speed'>
+                    <div className='wind-speed__name'>Скор. вет.</div>
+                    <div className='wind-speed__value'>{this.props.windSpeed}м/с</div>
+                </div>
+                <div className='weather-data__wind-deg wind-deg'>
+                    <div className='wind-deg__name'>Напр. вет.</div>
+                    <div className='wind-deg__value'>{this.props.windDeg}</div>
+                </div>
             </div>
         )
     }

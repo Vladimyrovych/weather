@@ -120,7 +120,7 @@ export class City extends React.Component {
         return (
             <div className='weather__city city'>
                 <div className='city__city-name'>{this.state.weatherHoursArray[0] === undefined? null: this.state.weatherHoursArray[0].cityName}</div>
-                <div className='city__weather-header'>
+                {/* <div className='city__weather-header'>
                     <div className='city__empty-block'></div>
                     <div className='city__empty-block'></div>
                     <div className='city__temperature'>Температура</div>
@@ -129,7 +129,7 @@ export class City extends React.Component {
                     <div className='city__weather-description'>Погодное явление</div>
                     <div className='city__wind-speed'>Скорость ветра</div>
                     <div className='city__wind-deg'>Направление ветра</div>
-                </div>
+                </div> */}
                 {hoursWeather}
             </div>
         )
