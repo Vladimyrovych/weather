@@ -1,11 +1,11 @@
 import React from 'react';
 import './CityWeatherDetailsDay.scss';
-import cloud from '../../../utilities/assets/cloudy.png';
-import fog from '../../../utilities/assets/foggy.png';
-import rain from '../../../utilities/assets/rainfall.png';
-import snow from '../../../utilities/assets/snow.png';
-import storm from '../../../utilities/assets/storm.png';
-import sun from '../../../utilities/assets/sun.png';
+import cloud from '../../utilities/assets/cloudy.png';
+import fog from '../../utilities/assets/foggy.png';
+import rain from '../../utilities/assets/rainfall.png';
+import snow from '../../utilities/assets/snow.png';
+import storm from '../../utilities/assets/storm.png';
+import sun from '../../utilities/assets/sun.png';
 
 
 export class CityWeatherDetailsDay extends React.Component {

@@ -1,15 +1,15 @@
 import React from 'react';
 import './City.scss';
-//import { CityWeatherDetails } from '../../components/cityWeatherDetails/CityWeatherDetails';
-import { CityWeatherDetailsDay } from '../../components/cityWeatherDetails/cityWeatherDetailsDay/CityWeatherDetailsDay';
+import { CityWeatherDetailsDay } from '../../components/cityWeatherDetailsDay/CityWeatherDetailsDay';
 
 export class City extends React.Component {
     state = {
         weatherHoursArray: [],
+        cityKey: '',
     }
 
     weatherRequestHours = () => {
-        const url = `http://api.openweathermap.org/data/2.5/forecast?id=${this.props.match.params.cityKey}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?id=${this.props.match.params.cityKey}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
         fetch(url)
         .then(response => response.json())
         .then(response => {
@@ -28,7 +28,10 @@ export class City extends React.Component {
             weatherHoursArray.forEach(element => {
                 element.cityName = response.city.name;
             });
-            this.setState({weatherHoursArray: weatherHoursArray});
+            this.setState({
+                weatherHoursArray: weatherHoursArray,
+                cityKey: this.props.match.params.cityKey,
+            });
         })
         .catch((e) => console.log(e));
     }
@@ -98,7 +101,7 @@ export class City extends React.Component {
     }
 
     render() {
-        if (this.state.weatherHoursArray.length === 0) {
+        if (this.state.weatherHoursArray.length === 0 || this.state.cityKey != this.props.match.params.cityKey) {
             this.weatherRequestHours();    
         }
         let hoursWeather = null;
@@ -120,16 +123,6 @@ export class City extends React.Component {
         return (
             <div className='weather__city city'>
                 <div className='city__city-name'>{this.state.weatherHoursArray[0] === undefined? null: this.state.weatherHoursArray[0].cityName}</div>
-                {/* <div className='city__weather-header'>
-                    <div className='city__empty-block'></div>
-                    <div className='city__empty-block'></div>
-                    <div className='city__temperature'>Температура</div>
-                    <div className='city__humidity'>Влажность</div>
-                    <div className='city__pressure'>Давление</div>
-                    <div className='city__weather-description'>Погодное явление</div>
-                    <div className='city__wind-speed'>Скорость ветра</div>
-                    <div className='city__wind-deg'>Направление ветра</div>
-                </div> */}
                 {hoursWeather}
             </div>
         )

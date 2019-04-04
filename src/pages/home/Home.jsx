@@ -8,7 +8,7 @@ export class Home extends React.Component {
     }
 
     weatherRequestSeveralCities = (ArrCityKeys) => {
-        const url = `http://api.openweathermap.org/data/2.5/group?id=${[...ArrCityKeys]}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/group?id=${[...ArrCityKeys]}&APPID=e5a8a2a8b07305119916d5ccc53716f0&units=metric`;
         fetch(url)
         .then(response => response.json())
         .then(response => {
