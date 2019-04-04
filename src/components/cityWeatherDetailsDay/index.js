@@ -1,1 +1,1 @@
-export * from './cityWeatherDetailsDay';
+export * from './CityWeatherDetailsDay';

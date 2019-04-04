@@ -1,6 +1,7 @@
 import React from 'react';
 import './City.scss';
-import { CityWeatherDetailsDay } from '../../components/cityWeatherDetailsDay/CityWeatherDetailsDay';
+import { CityWeatherDetailsDay } from '../../components/cityWeatherDetailsDay';
+import {CityBackground} from '../../components/cityBackground'
 
 export class City extends React.Component {
     state = {
@@ -74,7 +75,7 @@ export class City extends React.Component {
     }
 
     parseDeg = (deg) => {
-        if (deg > 337 && deg <= 360 || deg >= 1 && deg <= 22) {
+        if ((deg > 337 && deg <= 360) || (deg >= 1 && deg <= 22)) {
             return 'С';
         }
         if (deg > 22 && deg <= 67) {
@@ -101,11 +102,14 @@ export class City extends React.Component {
     }
 
     render() {
-        if (this.state.weatherHoursArray.length === 0 || this.state.cityKey != this.props.match.params.cityKey) {
-            this.weatherRequestHours();    
+        if (this.state.weatherHoursArray.length === 0 || this.state.cityKey !== this.props.match.params.cityKey) {
+            this.weatherRequestHours();
+            return null;    
         }
         let hoursWeather = null;
+        let cityName = null;
         if (this.state.weatherHoursArray.length > 0) {
+            cityName = this.state.weatherHoursArray[0].cityName;
             hoursWeather = this.state.weatherHoursArray.map((datetime) => {
                 return <CityWeatherDetailsDay
                     datetime={this.parseDate(datetime.datetime)}
@@ -119,11 +123,13 @@ export class City extends React.Component {
                 />
             })
         }
+        console.log('city ' + cityName);
         
         return (
             <div className='weather__city city'>
                 <div className='city__city-name'>{this.state.weatherHoursArray[0] === undefined? null: this.state.weatherHoursArray[0].cityName}</div>
                 {hoursWeather}
+                {cityName == null? null: <CityBackground cityName={cityName}/>}
             </div>
         )
     }

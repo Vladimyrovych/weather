@@ -37,7 +37,8 @@ export class Home extends React.Component {
                 '2950159', //Berlin
                 '349340'
             ]
-            this.weatherRequestSeveralCities(randomCities);    
+            this.weatherRequestSeveralCities(randomCities);
+            return null;    
         }
         let randomCitiesWeather = null;
         if (this.state.weatherArray.length > 0) {
