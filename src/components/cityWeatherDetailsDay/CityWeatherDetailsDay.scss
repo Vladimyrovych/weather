@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     font-size: 0.8em;
+    font-weight: 500;
     color: #232F34;
     text-align: center;
     border-bottom: 1px solid #232F34;
@@ -40,6 +41,6 @@
     height: 100%;
     &__name {
         color: rgba(35, 47, 52, 0.664);
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
 }
