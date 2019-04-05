@@ -1,10 +1,12 @@
 import React from 'react';
-import {CityWeather} from '../../components/cityWeather'
+import {CityWeather} from '../../components/cityWeather';
+import {CityBackground} from '../../components/cityBackground';
 import './Home.scss';
 
 export class Home extends React.Component {
     state = {
         weatherArray: [],
+        image: undefined,
     }
 
     weatherRequestSeveralCities = (ArrCityKeys) => {
@@ -22,6 +24,22 @@ export class Home extends React.Component {
                 }
             })
             this.setState({weatherArray: weatherArray});
+        })
+        .catch((e) => console.log(e));
+    }
+
+    getImageRequest = () => {
+        const url = `https://api.unsplash.com/search/photos?page=1&query=sky&orientation=landscape&client_id=5b43dc620f6401e0b4532b3d504345c6d46c090da03244346e1b3b9766a3696f`;
+        fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            const image = response.results[0];
+            this.setState(() => {
+                return {
+                    image: image,
+                }
+            })    
+
         })
         .catch((e) => console.log(e));
     }
@@ -52,10 +70,15 @@ export class Home extends React.Component {
                 />
             })
         }
+        if (this.state.image === undefined) {
+            this.getImageRequest();
+            return null;
+        }
 
         return (
             <div className='weather__home home'>
                 {randomCitiesWeather}
+                {this.state.image === undefined? null: <CityBackground url={this.state.image.urls.raw}/>}
             </div>
         )
     }
