@@ -7,6 +7,8 @@ export class City extends React.Component {
     state = {
         weatherHoursArray: [],
         cityKey: '',
+        image: undefined,
+        toRenderImg: false,
     }
 
     weatherRequestHours = () => {
@@ -29,10 +31,30 @@ export class City extends React.Component {
             weatherHoursArray.forEach(element => {
                 element.cityName = response.city.name;
             });
-            this.setState({
-                weatherHoursArray: weatherHoursArray,
-                cityKey: this.props.match.params.cityKey,
-            });
+            this.setState(() => {
+                return {
+                    weatherHoursArray: weatherHoursArray,
+                    cityKey: this.props.match.params.cityKey,
+                    toRenderImg: true,
+                }
+            })
+        })
+        .catch((e) => console.log(e));
+    }
+
+    getImageRequest = () => {
+        const url = `https://api.unsplash.com/search/photos?page=0&query=${this.state.weatherHoursArray[0].cityName}&orientation=landscape&client_id=5b43dc620f6401e0b4532b3d504345c6d46c090da03244346e1b3b9766a3696f`;
+        fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            const image = response.results[0];
+            this.setState(() => {
+                return {
+                    image: image,
+                    toRenderImg: false,
+                }
+            })    
+
         })
         .catch((e) => console.log(e));
     }
@@ -106,10 +128,13 @@ export class City extends React.Component {
             this.weatherRequestHours();
             return null;    
         }
+        if (this.state.toRenderImg === true) {
+            this.getImageRequest();
+            return null;
+        }
+        
         let hoursWeather = null;
-        let cityName = null;
         if (this.state.weatherHoursArray.length > 0) {
-            cityName = this.state.weatherHoursArray[0].cityName;
             hoursWeather = this.state.weatherHoursArray.map((datetime) => {
                 return <CityWeatherDetailsDay
                     datetime={this.parseDate(datetime.datetime)}
@@ -123,13 +148,12 @@ export class City extends React.Component {
                 />
             })
         }
-        console.log('city ' + cityName);
         
         return (
             <div className='weather__city city'>
                 <div className='city__city-name'>{this.state.weatherHoursArray[0] === undefined? null: this.state.weatherHoursArray[0].cityName}</div>
                 {hoursWeather}
-                {cityName == null? null: <CityBackground cityName={cityName}/>}
+                {this.state.image === undefined? null: <CityBackground url={this.state.image.urls.raw}/>}
             </div>
         )
     }
