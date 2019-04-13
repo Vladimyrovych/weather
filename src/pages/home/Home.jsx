@@ -1,6 +1,6 @@
 import React from 'react';
-import {CityWeather} from '../../components/cityWeather';
-import {CityBackground} from '../../components/cityBackground';
+import CityWeather from '../../components/cityWeather/CityWeather';
+import CityBackground from '../../components/cityBackground/CityBackground';
 import './Home.scss';
 
 export class Home extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './City.scss';
-import { CityWeatherDetailsDay } from '../../components/cityWeatherDetailsDay';
-import {CityBackground} from '../../components/cityBackground'
+import CityWeatherDetailsDay from '../../components/cityWeatherDetailsDay/CityWeatherDetailsDay';
+import CityBackground from '../../components/cityBackground/CityBackground'
 
 export class City extends React.Component {
     state = {

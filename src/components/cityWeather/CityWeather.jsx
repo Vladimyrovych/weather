@@ -8,41 +8,41 @@ import snow from '../../utilities/assets/snow.png';
 import storm from '../../utilities/assets/storm.png';
 import sun from '../../utilities/assets/sun.png';
 
-export class CityWeather extends React.Component {
-    getWeatherIcon = () => {
-        if (this.props.weatherId >= 200 && this.props.weatherId < 300) {
+const CityWeather = ({cityName, weatherId, cityKey, temperature, weatherMain}) => {
+   const getWeatherIcon = () => {
+        if (weatherId >= 200 && weatherId < 300) {
             return storm;
         }
-        if (this.props.weatherId >= 300 && this.props.weatherId < 500) {
+        if (weatherId >= 300 && weatherId < 500) {
             return rain;
         }
-        if (this.props.weatherId >= 500 && this.props.weatherId < 600) {
+        if (weatherId >= 500 && weatherId < 600) {
             return rain;
         }
-        if (this.props.weatherId >= 600 && this.props.weatherId < 700) {
+        if (weatherId >= 600 && weatherId < 700) {
             return snow;
         }
-        if (this.props.weatherId >= 700 && this.props.weatherId < 800) {
+        if (weatherId >= 700 && weatherId < 800) {
             return fog;
         }
-        if (this.props.weatherId === 800) {
+        if (weatherId === 800) {
             return sun;
         }
-        if (this.props.weatherId >= 801 && this.props.weatherId < 900) {
+        if (weatherId >= 801 && weatherId < 900) {
             return cloud;
         }
     }
 
-    render() {
-        return (
-            <Link to={`/city/${this.props.cityKey}`} className='home__city-weather city-weather'>
-                <div className='city-weather__city-name'>{this.props.cityName}</div>
-                <img className='city-weather__weather-icon' src={this.getWeatherIcon()}/>
-                <div className='city-weather__weather-description'>
-                    <div className='city-weather__city-temperature'>{this.props.temperature} °C</div>
-                    <div className='city-weather__weather-main'>{this.props.weatherMain}</div>
-                </div>
-            </Link>
-        )
-    }
+    return (
+        <Link to={`/city/${cityKey}`} className='home__city-weather city-weather'>
+            <div className='city-weather__city-name'>{cityName}</div>
+            <img className='city-weather__weather-icon' src={getWeatherIcon()}/>
+            <div className='city-weather__weather-description'>
+                <div className='city-weather__city-temperature'>{temperature} °C</div>
+                <div className='city-weather__weather-main'>{weatherMain}</div>
+            </div>
+        </Link>
+    )
 }
+
+export default CityWeather;
