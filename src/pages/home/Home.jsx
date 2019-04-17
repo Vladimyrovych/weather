@@ -3,7 +3,7 @@ import CityWeather from '../../components/cityWeather/CityWeather';
 import CityBackground from '../../components/cityBackground/CityBackground';
 import './Home.scss';
 
-export class Home extends React.Component {
+class Home extends React.Component {
     state = {
         weatherArray: [],
         image: undefined,
@@ -83,3 +83,5 @@ export class Home extends React.Component {
         )
     }
 }
+
+export default Home;

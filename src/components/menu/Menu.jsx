@@ -1,9 +1,9 @@
 import React from 'react';
 import './Menu.scss';
-import {SearchForm} from './searchForm';
-import {FavoriteCity} from './favoriteCity';
+import SearchForm from '../searchForm/SearchForm';
+import FavoriteCity from '../favoriteCity/FavoriteCity';
 
-export class Menu extends React.Component {
+class Menu extends React.Component {
     state = {
         isHidden: true,
         currentValue: '',
@@ -70,3 +70,5 @@ export class Menu extends React.Component {
         )
     }
 }
+
+export default Menu;

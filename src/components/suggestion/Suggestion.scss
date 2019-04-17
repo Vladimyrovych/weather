@@ -1,0 +1,21 @@
+.search-form__suggestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 35px;
+    padding: 0 14px;
+    font-family: inherit;
+    font-size: 0.9em;
+    color: #4A6572;
+    text-align: left;
+    &:hover {
+        border-top: 1px solid #4A6572;
+        border-bottom: 1px solid #4A6572;
+        cursor: default;
+    }
+}
+.search-form__suggestion-country {
+    color: rgba(74, 101, 114, 0.658);
+}

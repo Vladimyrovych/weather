@@ -3,7 +3,7 @@ import './City.scss';
 import CityWeatherDetailsDay from '../../components/cityWeatherDetailsDay/CityWeatherDetailsDay';
 import CityBackground from '../../components/cityBackground/CityBackground'
 
-export class City extends React.Component {
+class City extends React.Component {
     state = {
         weatherHoursArray: [],
         cityKey: '',
@@ -158,3 +158,5 @@ export class City extends React.Component {
         )
     }
 }
+
+export default City;
