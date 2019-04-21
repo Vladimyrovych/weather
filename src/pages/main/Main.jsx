@@ -9,7 +9,13 @@ class Main extends React.Component {
         return (
             <main className='weather__main main'>
                 <Switch>
-                    <Route exact path='/' component={Home}/>
+                    <Route
+                        exact path='/' 
+                        render={() => <Home 
+                            randomCitiesWeather={this.props.randomCitiesWeather} 
+                            url={this.props.url} 
+                        />}
+                    />
                     <Route path='/city/:cityKey/' component={City}/>
                 </Switch>
             </main>

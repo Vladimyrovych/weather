@@ -11,6 +11,3 @@ render(
     </BrowserRouter>,
     document.getElementById('root')
   )
-
-//comment for delete
-
